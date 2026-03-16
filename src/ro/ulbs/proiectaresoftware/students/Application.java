@@ -1,6 +1,8 @@
 package ro.ulbs.proiectaresoftware.students;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Set;
+import java.util.HashSet;
 
 public class Application {
     public static void main()
@@ -33,8 +35,9 @@ public class Application {
 
         Student cautaStudent1 = new Student(120, "Alis", "Popa", "TI21/2");
         Student cautaStudent2 = new Student(112, "Maria", "Popa", "TI21/1");
-        boolean prezentaStudent1 = cautaStudent1.verifPrezenta(listStudenti);
-        if(prezentaStudent1)
+
+        IO.println("Cautare pt liste varianta 1: ");
+        if(cautaStudent1.verifPrezenta(listStudenti))
         {
             IO.println("Studentul(a) " + cautaStudent1.nume + " " + cautaStudent1.prenume + " este in lista.");
         }
@@ -42,8 +45,7 @@ public class Application {
         {
             IO.println("Studentul(a) " + cautaStudent1.nume + " " + cautaStudent1.prenume + " nu este in lista.");
         }
-        boolean prezentaStudent2 = cautaStudent2.verifPrezenta(listStudenti);
-        if(prezentaStudent2)
+        if(cautaStudent2.verifPrezenta(listStudenti))
         {
             IO.println("Studentul(a) " + cautaStudent2.nume + " " + cautaStudent2.prenume + " este in lista.");
         }
@@ -52,6 +54,48 @@ public class Application {
             IO.println("Studentul(a) " + cautaStudent2.nume + " " + cautaStudent2.prenume + " nu este in lista.");
         }
 
+        IO.println("Cautare pt liste varianta 2: ");
+        if(cautaStudent1.verifPrezenta3(listStudenti))
+        {
+            IO.println("Studentul(a) " + cautaStudent1.nume + " " + cautaStudent1.prenume + " este in lista.");
+        }
+        else
+        {
+            IO.println("Studentul(a) " + cautaStudent1.nume + " " + cautaStudent1.prenume + " nu este in lista.");
+        }
+        if(cautaStudent2.verifPrezenta3(listStudenti))
+        {
+            IO.println("Studentul(a) " + cautaStudent2.nume + " " + cautaStudent2.prenume + " este in lista.");
+        }
+        else
+        {
+            IO.println("Studentul(a) " + cautaStudent2.nume + " " + cautaStudent2.prenume + " nu este in lista.");
+        }
 
+        Set<Student> setStudenti = new HashSet<Student>();
+
+        setStudenti.add(s1);
+        setStudenti.add(s2);
+        setStudenti.add(s3);
+        setStudenti.add(s4);
+        setStudenti.add(s5);
+
+        IO.println("Cautare pt seturi: ");
+        if(cautaStudent1.verifPrezenta2(setStudenti))
+        {
+            IO.println("Studentul(a) " + cautaStudent1.nume + " " + cautaStudent1.prenume + " este in lista.");
+        }
+        else
+        {
+            IO.println("Studentul(a) " + cautaStudent1.nume + " " + cautaStudent1.prenume + " nu este in lista.");
+        }
+        if(cautaStudent2.verifPrezenta2(setStudenti))
+        {
+            IO.println("Studentul(a) " + cautaStudent2.nume + " " + cautaStudent2.prenume + " este in lista.");
+        }
+        else
+        {
+            IO.println("Studentul(a) " + cautaStudent2.nume + " " + cautaStudent2.prenume + " nu este in lista.");
+        }
     }
 }

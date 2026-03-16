@@ -1,6 +1,5 @@
 package ro.ulbs.proiectaresoftware.students;
-import java.util.List;
-import java.util.ArrayList;
+import java.util.*;
 
 public class Student {
     int numarMatricol;
@@ -51,5 +50,27 @@ public class Student {
 
         return false;
     }
+
+    public boolean equals(Object o)
+    {
+        Student s = (Student) o;
+        return (s.numarMatricol == this.numarMatricol) && s.nume.equals(this.nume) && s.prenume.equals(this.prenume) && s.formatieDeStudiu.equals(this.formatieDeStudiu);
+    }
+
+    public int hashCode()
+    {
+        return Objects.hash(numarMatricol, nume, prenume, formatieDeStudiu);
+    }
+
+    public boolean verifPrezenta2 (Set<Student> set)
+    {
+        return set.contains(this);
+    }
+
+    public boolean verifPrezenta3 (List<Student> lista)
+    {
+        return lista.contains(this);
+    }
+
 
 }
