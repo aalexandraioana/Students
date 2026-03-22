@@ -15,22 +15,22 @@ public class Student {
         this.formatieDeStudiu = formatieDeStudiu;
     }
 
-    int getNumarMatricol ()
+   public int getNumarMatricol ()
     {
         return this.numarMatricol;
     }
 
-    String getPrenume()
+    public String getPrenume()
     {
         return this.prenume;
     }
 
-    String getNume()
+    public String getNume()
     {
         return this.nume;
     }
 
-    String getFormatieDeStudiu()
+    public String getFormatieDeStudiu()
     {
         return this.formatieDeStudiu;
     }
