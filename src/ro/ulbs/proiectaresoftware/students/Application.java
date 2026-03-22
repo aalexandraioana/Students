@@ -10,7 +10,8 @@ public class Application {
     {
 
         Path inStudenti = Paths.get("studenti_in.txt");
-        Path outStudenti = Paths.get("studenti_out.txt");
+        Path outStudenti1 = Paths.get("studenti_out.txt");
+        Path outStudenti2 = Paths.get("studenti_out_sorted.txt");
 
         try
         {
@@ -38,7 +39,8 @@ public class Application {
                 }
             }
 
-            inListaStudenti.sort(Comparator.comparing(Student::getNume));
+            inListaStudenti.sort(Comparator.comparing(Student::getFormatieDeStudiu).thenComparing(Student::getNume));
+            //inListaStudenti.sort(Comparator.comparing(Student::getNume));
 
             for (Student s : inListaStudenti)
             {
@@ -46,7 +48,7 @@ public class Application {
                 outListaStudenti.add(s.toString());
             }
 
-            Files.write(outStudenti, outListaStudenti);
+            Files.write(outStudenti2, outListaStudenti);
         }
         catch (IOException e)
         {
