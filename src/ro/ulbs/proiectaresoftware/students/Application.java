@@ -9,6 +9,50 @@ public class Application {
     public static void main()
     {
 
+        Path inStudenti = Paths.get("studenti_in.txt");
+        Path outStudenti = Paths.get("studenti_out.txt");
+
+        try
+        {
+            List<Student> inListaStudenti = new ArrayList<Student>();
+            List<String> outListaStudenti = new ArrayList<String>();
+
+            String studentiCititiFisier = "";
+
+            try(Scanner scanner = new Scanner(inStudenti))
+            {
+                while(scanner.hasNextLine())
+                {
+                    studentiCititiFisier = scanner.nextLine();
+
+                    String[] separaStudentiFisier = studentiCititiFisier.split(",");
+
+                    int numarMatricolCurent = Integer.parseInt(separaStudentiFisier[0]);
+                    String  prenumeCurent = separaStudentiFisier[1];
+                    String numeCurent = separaStudentiFisier[2];
+                    String formatieDeStudiuCurenta = separaStudentiFisier[3];
+
+                    Student s = new Student(numarMatricolCurent, prenumeCurent, numeCurent, formatieDeStudiuCurenta);
+
+                    inListaStudenti.add(s);
+                }
+            }
+
+            inListaStudenti.sort(Comparator.comparing(Student::getNume));
+
+            for (Student s : inListaStudenti)
+            {
+                System.out.println(s.toString());
+                outListaStudenti.add(s.toString());
+            }
+
+            Files.write(outStudenti, outListaStudenti);
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+
         Student s1 = new Student(112, "Ioan", "Popa", "TI21/1");
         Student s2 = new Student(112, "Maria", "Oprea", "TI21/1");
         Student s3 = new Student(120, "Alis", "Popa", "TI21/2");
