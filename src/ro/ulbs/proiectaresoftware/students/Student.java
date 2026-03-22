@@ -15,7 +15,7 @@ public class Student {
         this.formatieDeStudiu = formatieDeStudiu;
     }
 
-   public int getNumarMatricol ()
+    public int getNumarMatricol ()
     {
         return this.numarMatricol;
     }
